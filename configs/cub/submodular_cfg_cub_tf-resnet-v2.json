@@ -1,14 +1,14 @@
 {
     "uncertainty_model": {
-        "model_path": "ckpt/pytorch_model/cub-resnet101-edl.pth",
+        "model_path": "/content/LESSISMORE_Colab/ckpt/pytorch_model/cub-resnet101-edl.pth",
         "num_classes": 200
     },
     "recognition_model":{
-        "model_path": "ckpt/keras_model/cub-resnet101.h5",
+        "model_path": "/content/LESSISMORE_Colab/ckpt/keras_model/cub-resnet101.h5",
         "num_classes": 200
     },
     "effectiveness_distance_metric": "cosine",
-    "device": "cuda:1",
+    "device": "cuda:0",
     "mode": "TF",
     "version": 2
 }
