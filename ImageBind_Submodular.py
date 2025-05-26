@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
 import json # Thêm import json để xử lý file cấu hình nếu cần
+from torchvision import transforms
 
 # Cấu hình môi trường GPU
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
@@ -31,7 +32,8 @@ else:
 
 
 # Thiết lập thư mục đầu ra MỚI cho ImageBind
-output_imagebind_directory = os.path.join(project_root_dir, "image", "test_result", "imagebind_results")
+# ĐÃ CHỈNH SỬA ĐƯỜNG DẪN Ở ĐÂY
+output_imagebind_directory = os.path.join(project_root_dir, "image", "test_result", "ImageBind_result")
 os.makedirs(output_imagebind_directory, exist_ok=True)
 print(f"Output directory for ImageBind results ensured: {output_imagebind_directory}")
 
@@ -126,6 +128,7 @@ def SubRegionDivision(image, mode="slico"):
 from imagebind import data
 from imagebind.models import imagebind_model
 from imagebind.models.imagebind_model import ModalityType
+import torchvision.transforms as transforms # Thêm import này
 
 class ImageBindModel_Super(torch.nn.Module):
     def __init__(self, base_model):

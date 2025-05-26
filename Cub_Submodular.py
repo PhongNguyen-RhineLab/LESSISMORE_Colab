@@ -10,9 +10,9 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 # Kiểm tra GPU có sẵn
 import torch
 
-device = "cuda:0" if torch.cuda.is_available() else "cpu"
+device = "cuda:0" if torch.cuda.cuda_available() else "cpu"
 print(f"Using device: {device}")
-if torch.cuda.is_available():
+if torch.cuda.cuda_available():
     print(f"CUDA device name: {torch.cuda.get_device_name(0)}")
 else:
     print("CUDA is NOT available. Running on CPU (this will be very slow).")
@@ -23,7 +23,8 @@ os.chdir(project_root_dir)
 print(f"Current working directory set to: {os.getcwd()}")
 
 # Thiết lập thư mục đầu ra MỚI cho CUB
-output_cub_directory = os.path.join(project_root_dir, "image", "test_result", "cub")
+# ĐÃ CHỈNH SỬA ĐƯỜNG DẪN Ở ĐÂY
+output_cub_directory = os.path.join(project_root_dir, "image", "test_result", "Cub_result")
 os.makedirs(output_cub_directory, exist_ok=True)
 print(f"Output directory for CUB ensured: {output_cub_directory}")
 
@@ -237,7 +238,7 @@ if element_sets_V_seeds:  # Chỉ chạy nếu Superpixel Division thành công
 
 print(f"\nAll CUB visualization outputs saved as PNG files in: {output_cub_directory}")
 
-# --- Chạy quá trình Submodular Explanation cho HSIC (Grad-based) ---
+# --- Chạy quá trình Submodular Explanation với HSIC (Grad-based) ---
 print("\n--- Running Submodular Explanation with HSIC (Grad-based) ---")
 import tensorflow as tf
 from tensorflow import keras

@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
 import json # Import json để đọc file cấu hình nếu cần
+from torchvision import transforms
 
 # Cấu hình môi trường GPU
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
@@ -28,7 +29,8 @@ else:
     print("CUDA is NOT available. Running on CPU (this will be very slow).")
 
 # Thiết lập thư mục đầu ra MỚI cho LanguageBind
-output_languagebind_directory = os.path.join(project_root_dir, "image", "test_result", "languagebind_results")
+# ĐÃ CHỈNH SỬA ĐƯỜNG DẪN Ở ĐÂY
+output_languagebind_directory = os.path.join(project_root_dir, "image", "test_result", "LanguageBind_result")
 os.makedirs(output_languagebind_directory, exist_ok=True)
 print(f"Output directory for LanguageBind results ensured: {output_languagebind_directory}")
 
@@ -166,9 +168,6 @@ def transform_languagebind_vision_data(image_cv2):
     # LanguageBind's video transform already handles the 't' dimension if needed
     # (e.g., if it's a video reader). For a single image, this is often 't=1'.
     # If the model truly expects t=8, you might need to repeat it or adjust.
-    # Based on LanguageBind examples, for an image treated as a video frame,
-    # the transform often yields [C, H, W] which then needs unsqueeze(1) for [C, T, H, W]
-    # where T=1. If model requires T=8, we might need to repeat.
     # Let's check the shape after data_transform_video.
     # It will likely be [C, H, W].
     # So, we need to add the time dimension (T) and potentially repeat if T=8 is fixed.

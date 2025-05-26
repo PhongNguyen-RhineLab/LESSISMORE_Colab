@@ -33,7 +33,7 @@ else:
     print("CUDA is NOT available. Running on CPU (this will be very slow).")
 
 # Thiết lập thư mục đầu ra MỚI cho QuiltNet
-output_quiltnet_directory = os.path.join(project_root_dir, "image", "test_result", "quiltnet_results")
+output_quiltnet_directory = os.path.join(project_root_dir, "image", "test_result", "Quilt_results")
 os.makedirs(output_quiltnet_directory, exist_ok=True)
 print(f"Output directory for QuiltNet results ensured: {output_quiltnet_directory}")
 
