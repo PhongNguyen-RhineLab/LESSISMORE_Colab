@@ -272,12 +272,12 @@ print("load imagebind model")
 # Đặt file audio vào thư mục examples hoặc tải lên Colab
 # Ví dụ: nếu bạn đặt nó vào project_root_dir/examples/
 audio_file_name = "bZadyuv2utE_000080.flac" # Giả sử tên file
-audio_path_colab = os.path.join(project_root_dir, "examples", audio_file_name)
+audio_path_colab = os.path.join(project_root_dir, "datasets", "vggsound", audio_file_name)
 
 # Kiểm tra sự tồn tại của file audio
 if not os.path.exists(audio_path_colab):
     print(f"Error: Audio file not found at {audio_path_colab}.")
-    print("Please upload 'bZadyuv2utE_000080.flac' to your '/content/LESSISMORE_Colab/examples/' directory in Colab.")
+    print("Please upload 'bZadyuv2utE_000080.flac' to your '/content/LESSISMORE_Colab/datasets/vggsound/' directory in Colab.")
     exit()
 
 audio_input = read_audio(audio_path_colab, device)
