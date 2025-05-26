@@ -201,7 +201,7 @@ vis_model = LanguageBindModel_Super(model)
 print("Load LanguageBind model completed.")
 
 # --- Test LanguageBind feature extraction (optional, for debugging) ---
-test_image_path = os.path.join(project_root_dir, "examples", "dog_image.jpg")
+test_image_path = os.path.join(project_root_dir, "examples", "Crested_Auklet_0059_794929.jpg")
 test_image = cv2.imread(test_image_path)
 if test_image is None:
     print(f"Error: Test image not found at {test_image_path}")
