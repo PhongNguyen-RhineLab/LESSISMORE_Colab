@@ -10,7 +10,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 # Kiểm tra GPU có sẵn
 import torch
 
-device = "cuda:0" if torch.cuda.cuda_available() else "cpu"
+device = "cuda:0" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
 if torch.cuda.cuda_available():
     print(f"CUDA device name: {torch.cuda.get_device_name(0)}")
